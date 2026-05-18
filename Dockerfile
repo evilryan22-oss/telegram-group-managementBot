@@ -11,8 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# SQLite file lives here; mount a volume if you want persistence across rebuilds.
-VOLUME ["/app/data"]
+# SQLite file lives here; attach a Railway Volume at /app/data for persistence.
 ENV DATABASE_URL=/app/data/bot.db
 
 CMD ["python", "bot.py"]
